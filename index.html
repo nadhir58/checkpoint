@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>React</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        function Kpp(){
+            
+            let button = <button>Submit</button>;
+            let form = (
+              <form>
+                {button}
+              </form>
+            );
+            
+            return form;
+            }
+        class Home extends React.Component{
+            state = {
+                profile:{
+                    name: "nadhir",
+                    lastname: "benamor",
+                    age: 34},
+                x : 0,
+                website :'www.google.com'
+
+            }
+             changeName = (e)=>{
+                 this.setState({
+                     profile:{
+                         ... this.state.profile,
+                         name:e.target.value
+                     },
+                     x: this.state.x+1
+                 })
+
+             }
+            
+            render(){
+                return(
+                    <div>
+                        <Kpp/>
+                        <p> {this.state.profile.name}</p>
+                        <p> {this.state.profile.lastname}</p>
+                        <p>{this.state.profile.age}</p>
+                        <p>{this.state.x}</p>
+                        <input type="text" onChange ={this.changeName}/>
+                        
+                        </div>
+                        )
+                    }
+                }
+                ReactDOM.render(<Home/>, document.getElementById("app"))
+
+    </script>
+</body>
+</html>
